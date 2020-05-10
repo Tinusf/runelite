@@ -156,6 +156,11 @@ class KeyRemappingListener implements KeyListener
 				}
 			}
 
+			if (config.fkeyRemap() && plugin.isDialogOpen() && config.space().matches(e))
+			{
+				mappedKeyCode = KeyEvent.VK_SPACE;
+			}
+
 			if (mappedKeyCode != KeyEvent.VK_UNDEFINED)
 			{
 				final char keyChar = e.getKeyChar();
@@ -307,6 +312,10 @@ class KeyRemappingListener implements KeyListener
 				else if (config.esc().matches(e))
 				{
 					mappedKeyCode = KeyEvent.VK_ESCAPE;
+				}
+				else if (config.space().matches(e))
+				{
+					mappedKeyCode = KeyEvent.VK_SPACE;
 				}
 			}
 
