@@ -161,6 +161,11 @@ class KeyRemappingListener implements KeyListener
 				mappedKeyCode = KeyEvent.VK_SPACE;
 			}
 
+			if (config.fkeyRemap() && config.shift().matches(e))
+			{
+				mappedKeyCode = KeyEvent.VK_SHIFT;
+			}
+
 			if (mappedKeyCode != KeyEvent.VK_UNDEFINED)
 			{
 				final char keyChar = e.getKeyChar();
@@ -316,6 +321,10 @@ class KeyRemappingListener implements KeyListener
 				else if (config.space().matches(e))
 				{
 					mappedKeyCode = KeyEvent.VK_SPACE;
+				}
+				else if (config.shift().matches(e))
+				{
+					mappedKeyCode = KeyEvent.VK_SHIFT;
 				}
 			}
 
